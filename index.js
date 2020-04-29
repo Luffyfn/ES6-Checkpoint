@@ -1,36 +1,15 @@
-var pets = [
+let pets = [
   { name: "Max", type: "dog", bornOn: 2018 },
   { name: "Angel", type: "cat", bornOn: 2015 },
   { name: "Jasper", type: "dog", bornOn: 2016 }
 ];
 
-function getAge(pet) {
-  return new Date().getFullYear() - pet.bornOn;
-}
+getAge = pet => new Date().getFullYear() - pet.bornOn;
 
-var petsWithAge = [];
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  pet.age = getAge(pet);
 
-  petsWithAge.push(pet);
-}
-console.log(petsWithAge);
+let petsWithAge = pets.map(age => Object.assign(a, {age: getAge(age)}));
 
-var dogs = [];
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  if (pet.type === "dog") {
-    dogs.push(pet);
-  }
-}
-console.log(dogs);
+let dogs = petsWithAge.filter(dog => dog.type === "dog");
 
-var jasper;
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  if (pet.name === "Jasper") {
-    jasper = pet;
-  }
-}
+let jasper = petsWithAge.find(j => j.name === "Jasper");
 console.log("Jasper is " + jasper.age + " years old");
