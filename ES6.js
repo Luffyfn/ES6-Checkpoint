@@ -12,4 +12,4 @@ let petsWithAge = pets.map(age => Object.assign(age, {age: getAge(age)}));
 let dogs = petsWithAge.filter(dog => dog.type === 'dog');
 
 let jasper = petsWithAge.find(jasper => jasper.name === 'Jasper');
-console.log('Jasper is ' + jasper.age + ' years old');
+console.log(`Jasper is ${jasper.age} years old`);
